@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Domain
@@ -13,7 +14,10 @@ namespace Domain
 		{
 			checkDniHasValidLength(dni);
 
-			throw new DomainException("Ends with number");
+			if (Regex.IsMatch(dni, @"\d$"))
+				throw new DomainException("Ends with number");
+
+			throw new DomainException("Ends with invalid letter");
 		}
 
 		private void checkDniHasValidLength(string dni)
@@ -21,5 +25,6 @@ namespace Domain
 			if (dni.Length != VALID_LENGTH)
 				throw new LengthException("Too long or too short");
 		}
+
 	}
 }
