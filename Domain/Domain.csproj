@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="dni.cs" />
     <Compile Include="DomainException.cs" />
+    <Compile Include="InvalidArgumentException.cs" />
     <Compile Include="LengthException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -68,5 +68,12 @@ namespace Test
 				Assert.AreEqual("Has letters in the middle", ex.Message);
 			}
 		}
+		[TestMethod]
+		[ExpectedException(typeof(InvalidArgumentException), "Exception type not allowed")]
+		public void shouldFailWhenInvalidDni()
+		{
+
+			var dni = new dni("00000000S");
+		}
 	}
 }
