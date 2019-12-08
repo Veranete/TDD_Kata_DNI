@@ -32,6 +32,17 @@ namespace Test
 				Assert.AreEqual("Ends with number", ex.Message);
 			}
 		}
-
+		[TestMethod]
+		public void shouldFailWhenDniEndsWithAnInvalidLetter()
+		{
+			try
+			{
+				var dni = new dni("01234567I");
+			}
+			catch (DomainException ex)
+			{
+				Assert.AreEqual("Ends with invalid letter", ex.Message);
+			}
+		}
 	}
 }
