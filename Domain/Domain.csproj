@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="dni.cs" />
     <Compile Include="DomainException.cs" />
     <Compile Include="LengthException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

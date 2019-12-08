@@ -8,28 +8,17 @@ namespace Test
 	public class UnitTest1
 	{
 		[TestMethod]
+		[ExpectedException(typeof(LengthException), "Exception type not allowed")]
 		public void shouldFailWhenDniLongerThanMaxLenght()
 		{
-			try
-			{
-				var dni = new dni("0123456789");
-			}
-			catch (LengthException ex)
-			{
-				Assert.AreEqual("Too Long", ex.Message);
-			}
+			var dni = new dni("0123456789");
+
 		}
 		[TestMethod]
+		[ExpectedException(typeof(LengthException), "Exception type not allowed")]
 		public void shouldFailWhenDniShorterThanMinLenght()
 		{
-			try
-			{
-				var dni = new dni("01234567");
-			}
-			catch (LengthException ex)
-			{
-				Assert.AreEqual("Too Short", ex.Message);
-			}
+			var dni = new dni("01234567");
 		}
 		[TestMethod]
 		public void shouldFailWhenDniEndsWithANumber()

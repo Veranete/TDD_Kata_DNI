@@ -11,15 +11,15 @@ namespace Domain
 		const short VALID_LENGTH = 9;
 		public dni(string dni)
 		{
-			if (dni.Length != VALID_LENGTH)
-				throw checkDniHasValidLength(dni);
+			checkDniHasValidLength(dni);
 
 			throw new DomainException("Ends with number");
 		}
 
-		private static LengthException checkDniHasValidLength(string dni)
+		private void checkDniHasValidLength(string dni)
 		{
-			return new LengthException(dni.Length < VALID_LENGTH ? "Too Short" : "Too Long");
+			if (dni.Length != VALID_LENGTH)
+				throw new LengthException("Too long or too short");
 		}
 	}
 }
