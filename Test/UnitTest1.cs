@@ -45,11 +45,23 @@ namespace Test
 			}
 		}
 		[TestMethod]
-		public void testShouldFailWhenDniHasLettersInTheMiddle()
+		public void shouldFailWhenDniHasLettersInTheMiddle()
 		{
 			try
 			{
 				var dni = new dni("012AB567R");
+			}
+			catch (DomainException ex)
+			{
+				Assert.AreEqual("Has letters in the middle", ex.Message);
+			}
+		}
+		[TestMethod]
+		public void shouldFailWhenDniStartsWithALetterOtherThanXYZ()
+		{
+			try
+			{
+				var dni = new dni("AI234567R");
 			}
 			catch (DomainException ex)
 			{
