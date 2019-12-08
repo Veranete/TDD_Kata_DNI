@@ -17,7 +17,10 @@ namespace Domain
 			if (Regex.IsMatch(dni, @"\d$"))
 				throw new DomainException("Ends with number");
 
-			throw new DomainException("Ends with invalid letter");
+			if (Regex.IsMatch(dni, @"[UIOÑ]$"))
+				throw new DomainException("Ends with invalid letter");
+
+			throw new DomainException("Has letters in the middle");
 		}
 
 		private void checkDniHasValidLength(string dni)

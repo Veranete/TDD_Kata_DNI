@@ -44,5 +44,17 @@ namespace Test
 				Assert.AreEqual("Ends with invalid letter", ex.Message);
 			}
 		}
+		[TestMethod]
+		public void testShouldFailWhenDniHasLettersInTheMiddle()
+		{
+			try
+			{
+				var dni = new dni("012AB567R");
+			}
+			catch (DomainException ex)
+			{
+				Assert.AreEqual("Has letters in the middle", ex.Message);
+			}
+		}
 	}
 }
