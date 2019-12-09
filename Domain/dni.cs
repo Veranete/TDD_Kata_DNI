@@ -14,10 +14,8 @@ namespace Domain
 		{
 			checkDniHasValidLength(dni);
 
-			if (Regex.IsMatch(dni, @"[UIOÑ\d]$"))
-				throw new DomainException("Ends with invalid letter");
-			if (!Regex.IsMatch(dni, @"^[XYZ0-9]\d{7,7}.$"))
-				throw new DomainException("Starts with invalid letter");
+			if (!Regex.IsMatch(dni, @"^[XYZ\d]\d{7,7}[^UIOÑ\d]$"))
+				throw new DomainException("Bad format");
 
 			throw new InvalidArgumentException("Invalid dni");
 		}
