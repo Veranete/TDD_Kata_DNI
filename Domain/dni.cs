@@ -16,9 +16,7 @@ namespace Domain
 
 			if (Regex.IsMatch(dni, @"[UIOÑ\d]$"))
 				throw new DomainException("Ends with invalid letter");
-			if (!Regex.IsMatch(dni, @"\d{7,7}.$"))
-				throw new DomainException("Has letters in the middle");
-			if (!Regex.IsMatch(dni, @"^[XYZ0-9]"))
+			if (!Regex.IsMatch(dni, @"^[XYZ0-9]\d{7,7}.$"))
 				throw new DomainException("Starts with invalid letter");
 
 			throw new InvalidArgumentException("Invalid dni");
