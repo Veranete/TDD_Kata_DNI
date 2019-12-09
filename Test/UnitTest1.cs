@@ -8,14 +8,14 @@ namespace Test
 	public class UnitTest1
 	{
 		[TestMethod]
-		[ExpectedException(typeof(LengthException), "Exception type not allowed")]
+		[ExpectedException(typeof(DomainException), "Exception type not allowed")]
 		public void shouldFailWhenDniLongerThanMaxLenght()
 		{
 			var dni = new dni("0123456789");
 
 		}
 		[TestMethod]
-		[ExpectedException(typeof(LengthException), "Exception type not allowed")]
+		[ExpectedException(typeof(DomainException), "Exception type not allowed")]
 		public void shouldFailWhenDniShorterThanMinLenght()
 		{
 			var dni = new dni("01234567");
