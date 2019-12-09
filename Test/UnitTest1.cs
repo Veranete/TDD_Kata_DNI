@@ -21,58 +21,33 @@ namespace Test
 			var dni = new dni("01234567");
 		}
 		[TestMethod]
+		[ExpectedException(typeof(DomainException), "Ends with number")]
 		public void shouldFailWhenDniEndsWithANumber()
 		{
-			try
-			{
-				var dni = new dni("012345678");
-			}
-			catch (DomainException ex)
-			{
-				Assert.AreEqual("Ends with number", ex.Message);
-			}
+			var dni = new dni("012345678");
 		}
 		[TestMethod]
+		[ExpectedException(typeof(DomainException), "Ends with invalid letter")]
 		public void shouldFailWhenDniEndsWithAnInvalidLetter()
 		{
-			try
-			{
-				var dni = new dni("01234567I");
-			}
-			catch (DomainException ex)
-			{
-				Assert.AreEqual("Ends with invalid letter", ex.Message);
-			}
+			var dni = new dni("01234567I");
 		}
 		[TestMethod]
+		[ExpectedException(typeof(DomainException), "Has letters in the middle")]
 		public void shouldFailWhenDniHasLettersInTheMiddle()
 		{
-			try
-			{
-				var dni = new dni("012AB567R");
-			}
-			catch (DomainException ex)
-			{
-				Assert.AreEqual("Has letters in the middle", ex.Message);
-			}
+			var dni = new dni("012AB567R");
 		}
 		[TestMethod]
+		[ExpectedException(typeof(DomainException), "Starts with invalid letter")]
 		public void shouldFailWhenDniStartsWithALetterOtherThanXYZ()
 		{
-			try
-			{
-				var dni = new dni("AI234567R");
-			}
-			catch (DomainException ex)
-			{
-				Assert.AreEqual("Has letters in the middle", ex.Message);
-			}
+			var dni = new dni("A1234567R");
 		}
 		[TestMethod]
 		[ExpectedException(typeof(InvalidArgumentException), "Exception type not allowed")]
 		public void shouldFailWhenInvalidDni()
 		{
-
 			var dni = new dni("00000000S");
 		}
 	}
